@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "s8+KBKvy5m5S3pYmHsx+JF1xHZisRmETV8at/YUbhfg=",
+  "Source": "ProductCatalog.Infrastructure",
+  "BasePath": "_content/ProductCatalog.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\tomfr\\source\\repos\\ProductAPI\\ProductCatalog.Domain\\ProductCatalog.Domain.csproj",
+      "Version": 2,
+      "Source": "ProductCatalog.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;Configuration;Platform;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;Configuration;Platform;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

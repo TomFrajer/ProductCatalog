@@ -1,0 +1,14 @@
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductAPI\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductAPI\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
+C:\Users\tomfr\source\repos\ProductAPI\ProductCatalog.Domain\obj\Debug\net9.0\staticwebassets.build.json
