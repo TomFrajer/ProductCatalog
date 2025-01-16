@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+using Asp.Versioning;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalog.Application.Services;
 using ProductCatalog.Domain.Interfaces;
@@ -35,9 +35,18 @@ builder.Services.AddSwaggerGen(c =>
 // Add API versioning
 builder.Services.AddApiVersioning(options =>
 {
+    options.DefaultApiVersion = new ApiVersion(1, 0);
     options.AssumeDefaultVersionWhenUnspecified = true;
-    options.DefaultApiVersion = new ApiVersion(1, 0); // Default version
     options.ReportApiVersions = true;
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new UrlSegmentApiVersionReader(),
+        new HeaderApiVersionReader("X-Api-Version")
+    );
+}).AddApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    // Replace the placeholder with the actual version
+    options.SubstituteApiVersionInUrl = true;
 });
 
 // UseMockData configuration
