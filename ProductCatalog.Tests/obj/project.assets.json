@@ -109,10 +109,7 @@
         },
         "runtime": {
           "bin/placeholder/ProductCatalog.Application.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "ProductCatalog.Domain/1.0.0": {
         "type": "project",
@@ -358,9 +355,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
