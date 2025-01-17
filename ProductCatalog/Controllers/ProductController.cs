@@ -43,4 +43,48 @@ public class ProductsController : ControllerBase
         var products = await _productService.GetProductsPagedAsync(page, pageSize);
         return Ok(products);
     }
+
+    /// <summary>
+    /// Retrieves a single product by ID (v1 and v2).
+    /// </summary>
+    /// <param name="id">The ID of the product.</param>
+    /// <returns>The product details.</returns>
+    [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetProductById(int id)
+    {
+        var product = await _productService.GetProductByIdAsync(id);
+        if (product == null)
+        {
+            return NotFound($"Product with ID {id} not found.");
+        }
+        return Ok(product);
+    }
+
+    /// <summary>
+    /// Updates the description of a product (v1 and v2).
+    /// </summary>
+    /// <param name="id">The ID of the product to update.</param>
+    /// <param name="description">The new description for the product.</param>
+    /// <returns>No content if successful.</returns>
+    [HttpPatch("{id}/description")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> UpdateProductDescription(int id, [FromBody] string description)
+    {
+        if (string.IsNullOrEmpty(description))
+        {
+            return BadRequest("Description cannot be null or empty.");
+        }
+
+        var updated = await _productService.UpdateProductDescriptionAsync(id, description);
+        if (!updated)
+        {
+            return NotFound($"Product with ID {id} not found.");
+        }
+
+        return NoContent();
+    }
 }
