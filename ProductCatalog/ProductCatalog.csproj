@@ -7,6 +7,9 @@
     <UserSecretsId>176c6115-802c-43a1-8be4-65b55fc5d5e3</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\ProductCatalog.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

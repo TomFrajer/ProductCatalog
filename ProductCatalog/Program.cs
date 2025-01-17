@@ -30,7 +30,15 @@ builder.Services.AddSwaggerGen(c =>
         Title = "Product Catalog API v2",
         Description = "API documentation for Product Catalog API - Version 2 with pagination"
     });
+
+    var xmlFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        c.IncludeXmlComments(xmlPath);
+    }
 });
+
 
 // Add API versioning
 builder.Services.AddApiVersioning(options =>
