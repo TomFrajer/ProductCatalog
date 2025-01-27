@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using ProductCatalog.Application.Services;
+using System.ComponentModel.DataAnnotations;
 
 [ApiController]
 [Route("api/v{version:apiVersion}/products")]
@@ -20,11 +21,10 @@ public class ProductsController : ControllerBase
     /// </summary>
     [HttpGet]
     [MapToApiVersion("1.0")]
-    [Route("")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetProducts()
+    public async Task<IActionResult> GetProducts(CancellationToken cancellationToken)
     {
-        var products = await _productService.GetProductsAsync();
+        var products = await _productService.GetProductsAsync(cancellationToken);
         return Ok(products);
     }
 
@@ -36,11 +36,13 @@ public class ProductsController : ControllerBase
     /// <returns>A paginated list of products.</returns>
     [HttpGet]
     [MapToApiVersion("2.0")]
-    [Route("paged")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetProductsPaged([FromQuery] int page = 1, [FromQuery] int pageSize = 10)
+    public async Task<IActionResult> GetProductsPaged(
+        [FromQuery] int page = 1,
+        [FromQuery] int pageSize = 10,
+        CancellationToken cancellationToken = default)
     {
-        var products = await _productService.GetProductsPagedAsync(page, pageSize);
+        var products = await _productService.GetProductsPagedAsync(page, pageSize, cancellationToken);
         return Ok(products);
     }
 
@@ -52,9 +54,9 @@ public class ProductsController : ControllerBase
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetProductById(int id)
+    public async Task<IActionResult> GetProductById(int id, CancellationToken cancellationToken)
     {
-        var product = await _productService.GetProductByIdAsync(id);
+        var product = await _productService.GetProductByIdAsync(id, cancellationToken);
         if (product == null)
         {
             return NotFound($"Product with ID {id} not found.");
@@ -72,14 +74,14 @@ public class ProductsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> UpdateProductDescription(int id, [FromBody] string description)
-    {
+    public async Task<IActionResult> UpdateProductDescription(int id, [FromBody] string description, CancellationToken cancellationToken)
+        {
         if (string.IsNullOrEmpty(description))
         {
             return BadRequest("Description cannot be null or empty.");
         }
 
-        var updated = await _productService.UpdateProductDescriptionAsync(id, description);
+        var updated = await _productService.UpdateProductDescriptionAsync(id, description, cancellationToken);
         if (!updated)
         {
             return NotFound($"Product with ID {id} not found.");

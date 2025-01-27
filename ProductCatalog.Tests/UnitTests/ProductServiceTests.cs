@@ -22,15 +22,15 @@ namespace ProductCatalog.Tests.UnitTests
         {
             // Arrange
             var products = new List<Product> { new Product { Id = 1, Name = "Test Product", Price = 100 } };
-            _mockRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(products);
+            var cancellationToken = CancellationToken.None; // Simulated token
+            _mockRepo.Setup(repo => repo.GetAllAsync(cancellationToken)).ReturnsAsync(products);
 
             // Act
-            var result = await _service.GetProductsAsync();
+            var result = await _service.GetProductsAsync(cancellationToken);
 
             // Assert
             Assert.Single(result);
             Assert.Equal("Test Product", result.First().Name);
         }
     }
-
 }

@@ -28,10 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProductCatalog.Domain\ProductCatalog.Domain.csproj" />
+    <ProjectReference Include="..\ProductCatalog.Application\ProductCatalog.Application.csproj" />
     <ProjectReference Include="..\ProductCatalog.Infrastructure\ProductCatalog.Infrastructure.csproj" />
     <ProjectReference Include="..\ProductCatalog.Tests\ProductCatalog.Tests.csproj" />
-    <ProjectReference Include="..\ProductCatalog.Application\ProductCatalog.Application.csproj" />
   </ItemGroup>
 
 </Project>
